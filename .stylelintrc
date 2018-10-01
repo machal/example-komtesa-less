@@ -15,6 +15,7 @@
     "function-comma-newline-after": null,
     "function-parentheses-space-inside": null,
     "function-url-quotes": "never",
+    "indentation": 4,
     "max-empty-lines": 1,
     "max-nesting-depth": 2,
     "media-feature-name-no-vendor-prefix": true,
