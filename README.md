@@ -1,6 +1,4 @@
-# Příklad ke školení „CSS kód: Organizace a údržba“
-
-https://www.vzhurudolu.cz/kurzy/css-kod
+# Příklad ke školení v KomTeSa
 
 **Autor:** Martin Michálek, martin@vzhurudolu.cz
 
@@ -16,10 +14,10 @@ Instalujte konkrétní projekt:
 
 ```bash
 # naklonování projektu
-git clone https://github.com/machal/example-css-architecture.git
+git clone https://github.com/machal/example-komtesa-less.git
 
 # skok do adresáře
-cd example-css-architecture
+cd example-komtesa-less
 
 # instalace závislostí
 npm install
@@ -27,7 +25,3 @@ npm install
 # spuštění Gruntu - otevře okno prohlížeče s projektem
 grunt
 ```
-
-
-
-
