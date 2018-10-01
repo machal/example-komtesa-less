@@ -1,0 +1,69 @@
+.spaces(@name: ~'') {
+    .mt@{name}-0 {margin-top: 0}
+    .mt@{name}-1 {margin-top: @space-value-1}
+    .mt@{name}-2 {margin-top: @space-value-2}
+    .mt@{name}-3 {margin-top: @space-value-3}
+    .mt@{name}-4 {margin-top: @space-value-4}
+    .mt@{name}-5 {margin-top: @space-value-5}
+    .mt@{name}-6 {margin-top: @space-value-6}
+    .mt@{name}-auto {margin-top: auto}
+
+    .mb@{name}-0 {margin-bottom: 0}
+    .mb@{name}-1 {margin-bottom: @space-value-1}
+    .mb@{name}-2 {margin-bottom: @space-value-2}
+    .mb@{name}-3 {margin-bottom: @space-value-3}
+    .mb@{name}-4 {margin-bottom: @space-value-4}
+    .mb@{name}-5 {margin-bottom: @space-value-5}
+    .mb@{name}-6 {margin-bottom: @space-value-6}
+    .mb@{name}-auto {margin-bottom: auto}
+
+    .ml@{name}-0 {margin-left: 0}
+    .ml@{name}-1 {margin-left: @space-value-1}
+    .ml@{name}-2 {margin-left: @space-value-2}
+    .ml@{name}-3 {margin-left: @space-value-3}
+    .ml@{name}-4 {margin-left: @space-value-4}
+    .ml@{name}-5 {margin-left: @space-value-5}
+    .ml@{name}-6 {margin-left: @space-value-6}
+    .ml@{name}-auto {margin-left: auto}
+
+    .mr@{name}-0 {margin-right: 0}
+    .mr@{name}-1 {margin-right: @space-value-1}
+    .mr@{name}-2 {margin-right: @space-value-2}
+    .mr@{name}-3 {margin-right: @space-value-3}
+    .mr@{name}-4 {margin-right: @space-value-4}
+    .mr@{name}-5 {margin-right: @space-value-5}
+    .mr@{name}-6 {margin-right: @space-value-6}
+    .mr@{name}-auto {margin-right: auto}
+
+    .my@{name}-0 {margin-top: 0; margin-bottom: 0}
+    .my@{name}-1 {margin-top: @space-value-1; margin-bottom: @space-value-1}
+    .my@{name}-2 {margin-top: @space-value-2; margin-bottom: @space-value-2}
+    .my@{name}-3 {margin-top: @space-value-3; margin-bottom: @space-value-3}
+    .my@{name}-4 {margin-top: @space-value-4; margin-bottom: @space-value-4}
+    .my@{name}-5 {margin-top: @space-value-5; margin-bottom: @space-value-5}
+    .my@{name}-6 {margin-top: @space-value-6; margin-bottom: @space-value-6}
+    .my@{name}-auto {margin-top: auto; margin-bottom: auto}
+
+    .mx@{name}-0 {margin-left: 0; margin-right: 0}
+    .mx@{name}-1 {margin-left: @space-value-1; margin-right: @space-value-1}
+    .mx@{name}-2 {margin-left: @space-value-2; margin-right: @space-value-2}
+    .mx@{name}-3 {margin-left: @space-value-3; margin-right: @space-value-3}
+    .mx@{name}-4 {margin-left: @space-value-4; margin-right: @space-value-4}
+    .mx@{name}-5 {margin-left: @space-value-5; margin-right: @space-value-5}
+    .mx@{name}-6 {margin-left: @space-value-6; margin-right: @space-value-6}
+    .mx@{name}-auto {margin-left: auto; margin-right: auto}
+
+    .m@{name}-0 {margin: 0}
+    .m@{name}-1 {margin: @space-value-1}
+    .m@{name}-2 {margin: @space-value-2}
+    .m@{name}-3 {margin: @space-value-3}
+    .m@{name}-4 {margin: @space-value-4}
+    .m@{name}-5 {margin: @space-value-5}
+    .m@{name}-6 {margin: @space-value-6}
+    .m@{name}-auto {margin: auto}
+}
+
+.spaces();
+@media (min-width: @screen-sm-min) {.spaces(~'-sm')}
+@media (min-width: @screen-md-min) {.spaces(~'-md')}
+@media (min-width: @screen-lg-min) {.spaces(~'-lg')}

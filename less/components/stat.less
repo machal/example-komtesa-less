@@ -1,0 +1,39 @@
+// Statistická informace
+//
+// Výpis hodnoty s popiskem. Použití pro grafy. Možno kombinovat s třídou .featured--left .featured--info/success/warning/danger pro zvýraznění bloku příslušným stavem.
+//
+// Markup:
+// <div class="stat {{modifier_class}} ">
+//      <div class="stat__label">Poslední období</div>
+//      <div class="stat__value">212
+//          {{> components.value modifier_class="value--drop" }}
+//      </div>
+// </div>
+//
+// Weight: 15
+//
+// .featured.featured--left.featured--info - Informativní zvýraznění hodnot.
+// .featured.featured--left.featured--success - Úspěšné zvýraznění hodnot.
+// .featured.featured--left.featured--warning - Varovné zvýraznění hodnot.
+// .featured.featured--left.featured--danger - Závažné zvýraznění hodnot.
+//
+// Style guide: components.stats
+.stat {
+    display: inline-block;
+    padding: 0 1rem;
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+.stat__label {
+    margin-bottom: 0.5rem;
+    font-size: @font-size-sm;
+}
+
+.stat__value {
+    display: flex;
+    align-items: flex-start;
+    font-size: @font-size-lg;
+    font-weight: @font-weight-bold;
+    line-height: 1;
+}

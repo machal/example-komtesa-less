@@ -1,0 +1,88 @@
+// Dropdown
+//
+// Přidává možnost kliknutí na element a k elementu se zobrazí zmenšená karta s obsahem. Používat pouze s krátkým obsahem. Pužívat pouze pokud máme na pravé straně obrazovky dostatek místa.
+//
+// Weight: 20
+//
+// Markup:
+// <div class="dropdown">
+//      <div class="dropdown__target" data-fire-dropdown>
+//          {{> components.counter }}
+//      </div>
+//      <div class="dropdown__results" data-dropdown>
+//          <div class="card">
+//              <div class="card__body card__body--smaller">
+//          <div>
+//              <div><a href="#">Lukáš Majzan</a> žádá o potvrzení změny adresy</div>
+//              <div class="text-muted fs-sm">17.11.2018 18:33</div>
+//          </div>
+//      </div>
+//      <div class="card__footer card__footer--end">
+//          <a href="#">Všechna oznámení (6)</a>
+//      </div>
+//  </div>
+//
+// Style guide: components.dropdown
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown__target {
+    cursor: pointer;
+}
+
+.dropdown__results {
+    position: absolute;
+    right: 0;
+    width: 34rem;
+    margin-top: @space-value-3;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s ease-in-out;
+
+    @media (max-width: @screen-xs-max) {
+        left: 1.5rem;
+        right: auto;
+        width: 32rem;
+    }
+
+    &--visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:before, &:after {
+        display: block;
+        position: absolute;
+        bottom: 100%;
+        content: '';
+        border: solid transparent;
+    }
+
+    &:after {
+        right: 2rem;
+        width: 1.6rem;
+        height: 0.8rem;
+        border-width: 0 0.8rem 0.8rem;
+        border-bottom-color: #fff;
+
+        @media (max-width: @screen-xs-max) {
+            left: 0.5rem;
+            right: auto;
+        }
+    }
+
+    &:before {
+        right: 1.8rem;
+        width: 2rem;
+        height: 1rem;
+        border-width: 0 1rem 1rem;
+        border-bottom-color: #f5efef;
+
+        @media (max-width: @screen-xs-max) {
+            left: 0.3rem;
+            right: auto;
+        }
+    }
+}

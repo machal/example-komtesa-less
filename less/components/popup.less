@@ -1,0 +1,28 @@
+// Vyskakující popup okna
+//
+// Hlášky, které po 5s zmizí. V těchto vyskakujících oknech se používají alerty s modifikátorem .alert--inverse .alert--closable. Nepoužívat s obyčejnými systémovými alerty.
+//
+// Weight: 19
+//
+// Markup:
+//  <div style="position: relative; height: 400px;">
+//      <button class="btn btn--cta" data-fire-popup >Spustit popup</button>
+//      <div class="popup" data-popup>
+//          {{> components.alerts modifier_class="alert--inverse alert--danger alert--closable" heading="Popup heading" content="Lorem ipsum dolor sit amet, consectetur." }}
+//      </div>
+//  </div>
+//
+// Style guide: components.popups
+.popup {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: none;
+    max-width: 40rem;
+    width: 100%;
+    z-index: @zindex-popover;
+
+    &--active {
+        display: block;
+    }
+}

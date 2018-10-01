@@ -1,0 +1,106 @@
+// Formulář
+//
+// Datový řádek do formuláře.
+// * Modifikátor `form__content--auto` dávat v případě, pokud má být řádek flexibilní.
+// * Modifikátor `form__content--placeholder` dávat v případě, pokud řádek obsahuje pouze textaci.
+// * Pokud je pole povinné, přidat modifikátor `form__label--required` k labelu.
+//
+// Markup:
+// <div class="form {{modifier_class}}">
+//     <label class="form__label">Jméno</label>
+//     <div class="form__content">
+//         {{> components.field modifier_class="" }}
+//     </div>
+// </div>
+// <div class="form {{modifier_class}}">
+//     <label class="form__label form__label--required">Pošta</label>
+//     <div class="form__content">
+//         {{> components.selects modifier_class="" }}
+//         <div class="form__note">Musí obsahovat PSČ a obec.</div>
+//     </div>
+// </div>
+// <div class="form {{modifier_class}}">
+//     <label class="form__label">Oznámení</label>
+//     <div class="form__content form__content--auto">
+//         {{> components.checkbox modifier_class="" item_id="1" }}
+//     </div>
+// </div>
+// <div class="form {{modifier_class}}">
+//     <label class="form__label">Typ</label>
+//     <div class="form__content form__content--auto">
+//         {{> components.radio modifier_class="" item_id="1" }}
+//         <div class="form__note">Vyberte jednu z možností.</div>
+//     </div>
+// </div>
+//
+// .form--danger - Řádek obsahuje nevalidní data nebo není vyplněn.
+//
+// Weight: 8
+//
+// Style guide: components.form
+label {
+    display: inline-block;
+    max-width: 100%;
+    font-weight: @font-weight-bold;
+    line-height: 1.4;
+}
+
+.form {
+    display: flex;
+
+    &:not(:first-child) {
+        margin-top: @space-value-2;
+    }
+
+    &--danger {
+        .form__content:before {
+            position: absolute;
+            top: 1.1rem;
+            right: -2.1rem;
+            content: @icon-exclamation-triangle-warning;
+            display: block;
+            width: 1.2rem;
+            height: 1.1rem;
+            line-height: 0;
+        }
+
+        .form__note {
+            color: @brand-danger;
+        }
+    }
+}
+
+.form__label {
+    flex: 0 0 8rem;
+    margin-top: 0.8rem;
+
+    &--required:after {
+        content: '*';
+        margin-left: @space-value-1;
+        color: @brand-primary-lighten;
+    }
+}
+
+.form__content {
+    position: relative;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    max-width: 34rem;
+    align-items: flex-start;
+    margin-left: @space-value-2;
+
+    &--auto {flex: 0 1 auto}
+    &--placeholder {padding: 0.5rem 0}
+}
+
+.form__note {
+    margin-top: @space-value-1;
+    font-size: @font-size-sm;
+    line-height: 1.4;
+
+    &:before {
+        content: '';
+        width: 100%;
+    }
+}

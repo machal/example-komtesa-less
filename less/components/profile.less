@@ -1,0 +1,62 @@
+// Přenesená komponenta z původní Bodovky, není součástí styleguidu.
+
+.profile {
+    display: flex;
+    align-items: center;
+
+    & > *:not(:first-child) {margin-left: 2.5rem}
+
+    @media (max-width: @screen-xs-max) {
+        &--panel {
+            padding: 1.5rem;
+            background: #fff;
+        }
+    }
+}
+
+.profile__avatar {
+    position: relative;
+
+    &:before {
+        position: absolute;
+        bottom: 0.2rem;
+        right: -0.2rem;
+        content: '';
+        display: block;
+        width: 1.6rem;
+        height: 1.6rem;
+        border: 0.1rem solid #f8f8f8;
+        border-radius: 50%;
+        background: url('../../bodovka/images/basic-icons/profile-caret-down.png') no-repeat center #3e4955;
+        background-size: 0.8rem;
+        box-sizing: content-box;
+        cursor: pointer;
+    }
+}
+
+.profile__img {
+    width: 4.2rem;
+    height: 4.2rem;
+    border: 0.2rem solid @brand-primary;
+    border-radius: 50%;
+    box-sizing: content-box;
+    cursor: pointer;
+}
+
+.profile__content {font-size: 1.2rem}
+
+.profile__user-name {
+    font-size: 1.6rem;
+    font-weight: @font-weight-bold;
+    text-decoration: none;
+}
+
+.profile__user-type {
+    font-weight: @font-weight-bold;
+    margin-top: 0.3rem;
+}
+
+.profile__note {
+    margin-left: @space-value-1;
+    color: @text-muted;
+}

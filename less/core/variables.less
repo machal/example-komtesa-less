@@ -1,0 +1,367 @@
+// Barvy
+//
+// Výpis všech vydefinovaných barev, které se na Bodovce použíjí.
+//
+// Style guide: typography.color
+
+// Brandové barvy
+//
+// Brandová paleta barev.
+//
+// Weight: 1
+//
+// Colors:
+// @brand-primary: #d92121 - Hlavní brandová barva, používá se také na hover efekt akčních prvků na stránce (odkazy, tlačítka uložit/vytvořit...) nebo pro chybové stavy.
+// @brand-primary-lighten: #e95354 - Světlejší varianta hlavní brandové barvy, má i podobné využítí, měla by se používat u výchozího stavu akčních prvků.
+// @brand-secondary: #eba533 - Druhá brandová barva v tmavším odstínu, aby byla viditelnější na světlém podkladě, používá se pro upozorňující stavy.
+// @brand-tertiary: #4e5864 - Doplňující šedivá brandová barva, používá se hlavně u písma a ikon.
+//
+// Style guide: typography.color.brand
+@brand-primary: #d92121;
+@brand-primary-lighten: #e95354;
+@brand-secondary: #eba533;
+@brand-tertiary: #4e5864;
+
+// Stavové barvy
+//
+// Paleta barev, které definují význam dané komponenty.
+//
+// Colors:
+// @brand-success: #77c88e - Úspěšné dokončení procesu nebo povolená/funkční položka.
+// @brand-info: #4c8eef - Zajimavá nebo statistická informace.
+// @brand-warning: #eba533 - Upozorňující informace nebo že se během procesu vyskytly potíže.
+// @brand-danger: #e95354 - Neúspěčné ukončení procesu nebo nevyplněné/špatně vyplněné pole.
+//
+// Weight: 2
+//
+// Style guide: typography.color.state
+@brand-success: #77c88e;
+@brand-info: #4c8eef;
+@brand-warning: @brand-secondary;
+@brand-danger: @brand-primary-lighten;
+@brand-danger-hover: @brand-primary;
+
+// Prvkové barvy
+//
+// Barvy základní prvků, které se propisují i do proměnných komponent.
+//
+// Colors:
+// @bg-base: #fff - Základní barva pozadí.
+// @bg-darker: #f8f8f8 - Tmavší barva pozadí, použitá jako grafický doplněk některých komponent.
+// @bg-muted: #fff - Méně výrazná barva pozadí, používané u nepovolených/zakázaných ovládacích prvků.
+// @text-base: #4e5864 - Základní barva písma.
+// @text-muted: #a0a9b2 - Méně výrazná barva textu, používané u poznámek a nepovolených/zakázaných položek a ovládacích prvků.
+// @link-color: #e95354 - Barva odkazu.
+// @link-hover-color: #d92121 - Barva odkazu po najetí myši.
+// @border-color: #e1e1e1 - Barva čáry.
+// @border-hover-color: #c2c2c2 - Barva čáry po najetí myši, pokud je čára na klikatelném prvku.
+// @highlight-color: #fcf4dd - Zvýrazňující barva použitá např. pro zvýraznění řádku při najetí myši.
+//
+// Weight: 3
+//
+// Style guide: typography.color.atoms
+@bg-base: url('../../bodovka/images/bg.jpg') 0 140px no-repeat #e8e8e8;
+@bg-darker: #f8f8f8;
+@bg-muted: #eee;
+@text-base: @brand-tertiary;
+@text-muted: #a0a9b2;
+@link-color: @brand-primary-lighten;
+@link-hover-color: @brand-primary;
+@border-color: #e1e1e1;
+@border-hover-color: #c2c2c2;
+@highlight-color: #fcf4dd;
+
+
+
+// Alerts
+@alert-success-light: #89dda2;
+@alert-info-light: #7eb9ff;
+@alert-warning-light: #efc66c;
+@alert-danger-light: #f68080;
+
+
+
+// Units
+@base-unit: 62.5%;
+
+
+
+// Písmo
+//
+// Používá se pouze písmo **Arial**, pokud není dostupné, nahradího Helvetica Neue nebo jiné výchozí systémové "sans-serif" písmo.
+//
+// Markup:
+// <h1>Titulek Bodovky</h1>
+// <p>Před prvotní aktivací osobního profilu u nového pracovníka ČP je nutné <strong>kontaktovat pracovníka banky (SOV)</strong>, který má dané obchodní místo ČP v gesci, aby zaevidoval pracovníka ČP do aplikace <i>Bodová soutěž</i>. V případě potíží s přístupem do osobního profilu kontaktuje <a href="#">pracovníka banky</a>, který má poštu v gesci, ten zadá do aplikace Bodová soutěž osobní data pracovníka ČP, především RČ, nutné pro vygenerování prvotního přihlašovacího hesla.</p>
+// <p>Před prvotní aktivací osobního profilu u nového pracovníka ČP je nutné <strong>kontaktovat pracovníka banky (SOV)</strong>, který má dané obchodní místo ČP v gesci, aby zaevidoval pracovníka ČP do aplikace <i>Bodová soutěž</i>. V případě potíží s přístupem do osobního profilu kontaktuje <a href="#">pracovníka banky</a>, který má poštu v gesci, ten zadá do aplikace Bodová soutěž osobní data pracovníka ČP, především RČ, nutné pro vygenerování prvotního přihlašovacího hesla.</p>
+//
+// Style guide: typography.font
+@font-family-base: Arial, "Helvetica Neue", Helvetica, sans-serif;
+@line-height-base: 1.7;
+
+// Velikosti písma
+//
+// Povolené velikosti písma.
+// * Pouze [nadpisy](#kssref-typography-headings) mají svoje vlastní, nelze je ale používat na cokoliv jiného.
+//
+// Markup:
+// <div class="fs-sm">@font-size-sm: cca 11px</div>
+// <div class="fs-md">@font-size-md: cca 13px</div>
+// <div class="fs-lg">@font-size-lg: cca 16px</div>
+//
+// Style guide: typography.font.sizes
+@font-size-sm: 1.1rem;
+@font-size-md: 1.3rem;
+@font-size-lg: 1.6rem;
+@font-size-base: @font-size-md;
+
+// Řezy písma
+//
+// Dostupné řezy písma.
+//
+// Markup:
+// <div class="fw-normal">@font-weight-normal: 400</div>
+// <div class="fw-bold">@font-weight-bold: 700</div>
+// <div class="fw-black">@font-weight-black: 900</div>
+//
+// Style guide: typography.font.weights
+@font-weight-normal: 400;
+@font-weight-bold: 700;
+@font-weight-black: 900;
+@font-weight-base: @font-weight-normal;
+
+
+
+// Typo
+@paragraph-margin: 0 0 @space-value-3;
+
+@lead-margin: 0 0 @space-value-4;
+@lead-size: @font-size-lg;
+@lead-line-height: 1.4;
+
+
+
+// Nadpisy
+//
+// Vzhled nadpisů u HTML tagů `h1 – h6`.
+// * Pokud nadpis není sematický ale jen vizuální, je potřeba HTML tag nahradit `div`em se třídou `.h1 – .h6`.
+// * Nelze používat velikosti nadpisů na cokoliv jiného. Používejte pouze [povolené velikosti](#kssref-typography-font-sizes).
+// * Nadpisy se vyskytují buď jako hlavní nadpis v hlavičce nebo v obsahových stránkách.
+//
+// Markup:
+// <h1>h1 - Nadpis Bodovky</h1>
+// <h2>h2 - Nadpis Bodovky</h2>
+// <h3>h3 - Nadpis Bodovky</h3>
+// <h4>h4 - Nadpis Bodovky</h4>
+// <h5>h5 - Nadpis Bodovky</h5>
+// <h6>h6 - Nadpis Bodovky</h6>
+//
+// Style guide: typography.headings
+@headings-margin: 0 0 @space-value-3;
+@headings-family: @font-family-base;
+@headings-line-height: 1.2;
+@headings-color: @text-base;
+
+@heading-1-3-weight: @font-weight-base;
+@heading-4-6-weight: @font-weight-black;
+
+@heading-1-size: @font-size-base * 2;
+@heading-2-size: @font-size-base * 1.8;
+@heading-3-size: @font-size-base * 1.5;
+@heading-4-size: @font-size-base * 1.3;
+@heading-5-size: @font-size-base * 1.1;
+@heading-6-size: @font-size-base;
+
+
+
+// Animations
+@transition-animation: 100ms ease-in-out;
+@fade-animation: 0.3s ease-out;
+
+
+
+// Buttons
+@btn-padding-base: 0.8rem 2rem;
+@btn-border: 0.1rem solid transparent;
+@btn-radius: 5rem;
+@btn-size-base: @font-size-base;
+@btn-weight: @font-weight-base;
+
+@btn-default-color: @brand-primary;
+@btn-default-bg: #fff;
+@btn-default-bcolor: @border-color;
+@btn-default-hover-bcolor: @border-hover-color;
+@btn-default-hover-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+
+@btn-ghost-color: @btn-default-color;
+@btn-ghost-hover-bg: @btn-default-bg;
+@btn-ghost-hover-bcolor: #fff;
+@btn-ghost-hover-shadow: @btn-default-hover-shadow;
+
+@btn-cta-color: #fff;
+@btn-cta-bg: @link-color;
+@btn-cta-bcolor: @btn-cta-bg;
+@btn-cta-tshadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.4);
+@btn-cta-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+@btn-cta-hover-bg: @link-hover-color;
+@btn-cta-hover-border: @btn-cta-bg;
+
+@btn-icon-space: 0.5rem;
+
+
+
+// Featured
+@featured-border: 0.3rem solid;
+
+
+
+// Tabs
+@tabs-pills-tab-padding: 0.8rem 1.5rem;
+@tabs-pills-tab-border: 0.1rem solid transparent;
+@tabs-pills-tab-radius: 5rem;
+
+@tabs-pills-tab-current-color: @btn-cta-color;
+@tabs-pills-tab-current-bg: @btn-cta-bg;
+@tabs-pills-tab-current-bcolor: @btn-cta-bcolor;
+@tabs-pills-tab-current-tshadow: @btn-cta-tshadow;
+@tabs-pills-tab-current-shadow: @btn-cta-shadow;
+
+@tabs-pills-tab-hover-bg: @btn-ghost-hover-bg;
+@tabs-pills-tab-hover-bcolor: @btn-ghost-hover-bcolor;
+@tabs-pills-tab-hover-shadow: @btn-ghost-hover-shadow;
+
+@tab-current-color: @brand-primary;
+@tab-current-bcolor: @tab-current-color;
+
+
+
+// Fields
+@field-minwidth: 9rem;
+@field-maxwidth: 34rem;
+@field-height: 3.2rem;
+@field-padding: 0 1.2rem;
+@field-border: 0.1rem solid @border-color;
+@field-focus-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+@field-danger-bcolor: @brand-danger;
+@field-danger-hover-bcolor: @brand-danger-hover;
+@field-danger-focus-shadow: 0 0.2rem 0.5rem fade(@brand-danger, 20%, relative);
+
+
+
+// Selects
+@select-maxwidth: @field-maxwidth;
+@select-height: @field-height;
+@select-padding: @field-padding;
+@select-border: @field-border;
+@select-dropdown-shadow: @field-focus-shadow;
+@select-list-maxheight: 20rem;
+@select-option-padding: 0.8rem 1.2rem;
+@select-option-action-bg: @highlight-color;
+@select-option-highlight-bg: rgba(125, 168, 208, 0.2);
+@select-ghost-maxwidth: 9.5rem;
+@select-danger-bcolor: @field-danger-bcolor;
+@select-danger-hover-bcolor: @field-danger-hover-bcolor;
+@select-danger-focus-shadow: @field-danger-focus-shadow;
+
+
+
+// Tables
+@table-bg: #fff;
+@table-header-bg: @bg-darker;
+@table-footer-bg: @bg-darker;
+@table-cell-padding: 0.8rem 1.5rem;
+@table-body-cell-padding: 1.3rem 1.5rem;
+@table-body-hover-row-bg: @highlight-color;
+
+
+
+// Cards
+@card-bg: #fff;
+@card-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+@card-header-padding: 0 2rem;
+@card-body-padding: 2.5rem 2rem;
+@card-footer-padding: 1rem 2rem;
+@card-inner-bcolor: @border-color;
+
+
+
+// Modals
+@modal-dialog-width-xs-down: auto;
+@modal-dialog-width-sm-up: 54rem;
+@modal-content-bg: #fff;
+@modal-backdrop-bg: #000;
+@modal-backdrop-opacity: 0.5;
+@modal-header-color: #fff;
+@modal-header-bg: @brand-tertiary;
+@modal-footer-bg: @bg-darker;
+
+
+
+// Icons
+@icon-exclamation-triangle-warning: url('../images/icon-exclamation-triangle-warning.svg');
+@icon-check-white: url('../images/icon-check-white.svg');
+@icon-check-success: url('../images/icon-check-success.svg');
+@icon-caret-up-success: url('../images/icon-caret-up-success.svg');
+@icon-caret-down-danger: url('../images/icon-caret-down-danger.svg');
+@icon-caret-right-muted: url('../images/icon-caret-right-muted.svg');
+@icon-info-circle-blue: url('../images/icon-info-circle-blue.svg');
+@icon-circle-white: url('../images/icon-circle-white.svg');
+@icon-circle-info: url('../images/icon-circle-info.svg');
+@icon-times-danger: url('../images/icon-times-danger.svg');
+@icon-times-muted: url('../images/icon-times-muted.svg');
+@icon-filter-muted: url('../images/icon-filter-muted.svg');
+@icon-chevron-right-grey: url('../images/icon-chevron-right-grey.svg');
+@icon-chevron-right-yellow: url('../images/icon-chevron-right-yellow.svg');
+@icon-chevron-down-grey: url('../images/icon-chevron-down-grey.svg');
+@icon-chevron-down-yellow: url('../images/icon-chevron-down-yellow.svg');
+
+
+
+// Grid & Media Queries Breakpoints
+@container-sm: (720px + @grid-gutter-width);
+@container-md: (940px + @grid-gutter-width);
+@container-lg: (1140px + @grid-gutter-width);
+
+@grid-gutter-width: 30px;
+
+@screen-xs: 480px;
+@screen-xs-min: @screen-xs;
+@screen-xs-max: (@screen-sm-min - 1);
+
+@screen-sm: 768px;
+@screen-sm-min: @screen-sm;
+@screen-sm-max: (@screen-md-min - 1);
+
+@screen-md: 992px;
+@screen-md-min: @screen-md;
+@screen-md-max: (@screen-lg-min - 1);
+
+@screen-lg: 1200px;
+@screen-lg-min: @screen-lg;
+
+
+
+// Spacing
+@space-value-1: 0.5rem;
+@space-value-2: 1rem;
+@space-value-3: 1.5rem;
+@space-value-4: 3rem;
+@space-value-5: 6rem;
+@space-value-6: 12rem;
+
+
+
+// Horizontal Line
+@hr-margin: @space-value-3 0;
+@hr-border: 0.1rem solid @border-color;
+
+
+
+// Zindex
+@zindex-navbar: 1000;
+@zindex-dropdown: 1010;
+@zindex-navbar-fixed: 1020;
+@zindex-modal-bg: 1030;
+@zindex-modal: 1040;
+@zindex-tooltip: 1050;
+@zindex-popover: 1060;

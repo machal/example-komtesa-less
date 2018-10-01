@@ -1,0 +1,133 @@
+// Tlačítka
+//
+// Umožňují spustění procesu nebo otevírání odkazů.
+// * Musí obsahovat jeden z vydefinovaných modifikátorů, výchozí třída pouze dodává sdílené parametry a nesmí se používat samostatně.
+//
+// Markup: <a href="#" class="btn {{modifier_class}}">{{#if text}}{{text}}{{else}}<i class="fa fa-times btn__icon btn__icon--left"></i>Link Button{{/if}}</a>
+//
+// .btn--default - Základní tlačítko, nepoužívat pro vytvoření nebo uložení položky.
+// .btn--ghost - Nevýrazné tlačítko, které nemá upoutávat pozornost, používá se u "Zrušit akci" nebo u editace položky. Ve výpisu položek se zobrazí až po najetí myši ke konkrétní položce.
+// .btn--cta - Zvýrazněné tlačítko, které provádí důležitou akci, např.: potvrzení akce, vytvoření nebo uložení položky.
+//
+// Weight: 2
+//
+// Style guide: components.buttons
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    border: @btn-border;
+    border-radius: @btn-radius;
+    background-image: none;
+    font-weight: @btn-weight;
+    text-align: center;
+    line-height: 1.4;
+    vertical-align: middle;
+    cursor: pointer;
+    white-space: nowrap;
+    touch-action: manipulation;
+    .button-size(@btn-padding-base; @btn-size-base);
+    .transition(@transition-animation);
+    .user-select(none);
+
+    &, &:hover, &:focus {
+        outline: none;
+        text-decoration: none;
+    }
+
+    &:active {
+        outline: 0;
+        background-image: none;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        opacity: 0.65;
+        cursor: not-allowed;
+        .box-shadow(none);
+    }
+
+    &--default {
+        background: @btn-default-bg;
+        border-color: @btn-default-bcolor;
+
+        &, &:hover, &:focus {
+            color: @btn-default-color;
+        }
+
+        &:hover, &:focus {
+            border-color: @btn-default-hover-bcolor;
+            .box-shadow(@btn-default-hover-shadow);
+        }
+
+        &:active {
+            border-color: darken(@btn-default-hover-bcolor, 15%);
+        }
+    }
+
+    &--ghost {
+        background: transparent;
+
+        &, &:hover, &:focus {
+            color: @btn-ghost-color;
+        }
+
+        &:hover, &:focus {
+            background: @btn-ghost-hover-bg;
+            border-color: @btn-ghost-hover-bcolor;
+            .box-shadow(@btn-ghost-hover-shadow);
+        }
+
+        &:active {
+            border-color: darken(@btn-ghost-hover-bcolor, 15%);
+        }
+    }
+
+    &--cta {
+        background: @btn-cta-bg;
+        border-color: @btn-cta-bcolor;
+        text-shadow: @btn-cta-tshadow;
+        .box-shadow(@btn-cta-shadow);
+
+        &, &:hover, &:focus {
+            color: @btn-cta-color;
+        }
+
+        &:hover, &:focus {
+            background: @btn-cta-hover-bg;
+            border-color: @btn-cta-hover-border;
+        }
+
+        &:active {
+            background: darken(@btn-cta-hover-bg, 15%);
+            border-color: darken(@btn-cta-hover-border, 15%);
+        }
+    }
+
+    // Kulaté tlačítko
+    //
+    // Kulatá varianta tlačítka, jejíž rozměry jsou 1:1 a používá se u tlačítek pouze s ikonou nebo krátkou textací.
+    //
+    // Markup: <a href="#" class="btn btn--circle {{modifier_class}}"><i class="{{#if icon}}{{icon}}{{else}}fas fa-check{{/if}}"></i></a>
+    //
+    // .btn--default - Základní tlačítko, nepoužívat pro vytvoření nebo uložení položky.
+    // .btn--ghost - Nevýrazné tlačítko, které nemá upoutávat pozornost, používá se u "Zrušit akci" nebo u editace položky. Ve výpisu položek se zobrazí až po najetí myši ke konkrétní položce.
+    // .btn--cta - Zvýrazněné tlačítko, které provádí důležitou akci, např.: potvrzení akce, vytvoření nebo uložení položky.
+    //
+    // Style guide: components.buttons.circle
+    &--circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        padding: 0.3rem;
+        border-radius: 50%;
+    }
+}
+
+.btn__icon {
+    &--left { margin-right: @btn-icon-space; }
+    &--right { margin-left: @btn-icon-space; }
+}

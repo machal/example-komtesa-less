@@ -1,0 +1,36 @@
+// Hodnota růstu/propadu
+//
+// Označení rostoucí/klesající hodnoty příslušným stavem a šipkou. Použití ve statistických informacích nebo tabulkách.
+//
+// Markup: <span class="value {{modifier_class}} ">{{#if text}}{{text}}{{else}}60 %{{/if}}</span>
+//
+// .value--increase - Rostoucí hodnota
+// .value--drop - Klesající hodnota
+//
+// Weight: 17
+//
+// Style guide: components.value
+.value {
+    display: inline-flex;
+    align-items: center;
+    margin-left: @space-value-1;
+    font-size: @font-size-sm;
+
+    &:before {
+        width: 0.6rem;
+        margin-right: 0.3rem;
+    }
+
+    &--increase {
+        color: @brand-success;
+
+        &:before { content: @icon-caret-up-success; }
+    }
+
+    &--drop {
+        color: @brand-danger;
+
+        &:before { content: @icon-caret-down-danger; }
+    }
+
+}

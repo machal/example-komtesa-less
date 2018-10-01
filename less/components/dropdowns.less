@@ -1,0 +1,170 @@
+// Přenesená komponenta z původní Bodovky, není součástí styleguidu.
+
+.dropdown {position: relative}
+
+.dropdown-menu {
+    min-width: 23rem;
+    background: #353f49;
+    font-size: 1.2rem;
+    z-index: @zindex-dropdown;
+    &:extend(.list-unstyled);
+
+    @media (min-width: @screen-sm-min) {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+        margin-top: 1rem;
+
+        &:before {
+            position: absolute;
+            top: -1.6rem;
+            left: 3.1rem;
+            display: block;
+            content: '';
+            width: 1.6rem;
+            height: 1.6rem;
+            border: 0.8rem solid transparent;
+            border-bottom-color: #353f49;
+        }
+    }
+
+    @media (max-width: @screen-xs-max) {
+        &:before {
+            top: 13px;
+            transform: translateY(0);
+        }
+    }
+
+    &--child {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: -130px;
+        padding: 0;
+        min-width: 130px;
+        background: #4b5867;
+        list-style: none;
+
+        @media (max-width: @screen-xs-max) {
+            display: block;
+            position: relative;
+            right: 0;
+            background: transparent;
+        }
+
+        .dropdown-menu__item {
+            border: none;
+            position: relative;
+
+            &:hover {
+                background: #4b5867;
+            }
+
+            @media (max-width: @screen-xs-max) {
+                &:hover {
+                    background: transparent;
+                }
+            }
+        }
+
+        .dropdown-menu__link {
+            display: block;
+            padding: 0.8rem 1.2rem;
+            color: #fff;
+            text-align: left;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            @media (max-width: @screen-xs-max) {
+                padding-left: 6rem;
+            }
+        }
+    }
+}
+
+.open .dropdown-menu {display: block}
+
+.dropdown-menu__item {
+    position: relative;
+
+    &--parent {
+        &:after {
+            display: inline-block;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            content: @icon-chevron-right-grey;
+            width: 0.8rem;
+
+            @media (max-width: @screen-xs-max) {
+                content: @icon-chevron-down-grey;
+            }
+        }
+
+        &:hover {
+            &:after {
+                content: @icon-chevron-right-yellow;
+
+                @media (max-width: @screen-xs-max) {
+                    content: @icon-chevron-down-yellow;
+                }
+            }
+
+            .dropdown-menu__link.dropdown-menu__link--icon-user:before {background-image: url('../../bodovka/images/icons/yellow/user.png')}
+        }
+
+        @media (max-width: @screen-xs-max) {
+            .dropdown-menu__link:before {
+                top: 1.3rem;
+                .translate(0, 0);
+            }
+        }
+    }
+
+    &:not(:first-child) {border-top: 0.1rem solid rgba(0, 0, 0, 0.2)}
+    &:hover {
+        background: #4b5867;
+
+        .dropdown-menu--child {display: block;}
+    }
+}
+
+.dropdown-menu__link {
+    display: block;
+    background: transparent;
+    text-decoration: none;
+    white-space: nowrap;
+
+    @media (max-width: @screen-xs-max) {padding: 1.1rem 1.1rem 1.1rem 3.6rem}
+    @media (min-width: @screen-sm-min) {padding: 0.8rem 1.2rem 0.8rem 3.6rem}
+
+    &:before {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        content: '';
+        display: block;
+        width: 1.8rem;
+        height: 1.3rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        .translate(0, -50%);
+    }
+
+    &--icon-user:before {background-image: url('../../bodovka/images/icons/grey/user.png')}
+    &--icon-lock-off:before {background-image: url('../../bodovka/images/icons/grey/lock.png')}
+    &--icon-bell:before {background-image: url('../../bodovka/images/icons/grey/bell.png')}
+
+    &, &:hover, &:focus {color: #fff}
+
+    &:hover, &:focus {
+        &.dropdown-menu__link--icon-user:before {background-image: url('../../bodovka/images/icons/yellow/user.png')}
+        &.dropdown-menu__link--icon-lock-off:before {background-image: url('../../bodovka/images/icons/yellow/lock.png')}
+        &.dropdown-menu__link--icon-bell:before {background-image: url('../../bodovka/images/icons/yellow/bell.png')}
+    }
+}

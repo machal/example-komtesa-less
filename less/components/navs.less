@@ -1,0 +1,49 @@
+// Přenesená komponenta z původní Bodovky, není součástí styleguidu.
+
+.nav {
+    &:extend(.list-unstyled);
+
+    @media (max-width: @screen-xs-max) {
+        display: block;
+        padding: 0;
+        background: #353f49;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        display: inline-flex;
+        padding: 0 1.5rem;
+        border-radius: 1.5rem;
+        background: rgba(0, 0, 0, 0.1);
+    }
+}
+
+.nav__item {
+    position: relative;
+    display: block;
+
+    @media (max-width: @screen-xs-max) {
+        &:hover {background: #4b5867}
+        &:not(:first-child) {border-top: 0.1rem solid rgba(0, 0, 0, 0.2)}
+    }
+
+    @media (min-width: @screen-sm-min) {
+        &:hover {background: #3e4955}
+    }
+}
+
+.nav__link {
+    display: block;
+    text-decoration: none;
+
+    @media (max-width: @screen-xs-max) {
+        padding: 1rem 1.5rem;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        font-size: 1.4rem;
+        padding: 0.6rem 1rem;
+    }
+
+    &--current {font-weight: @font-weight-bold}
+    &, &:hover, &:focus {color: #fff}
+}

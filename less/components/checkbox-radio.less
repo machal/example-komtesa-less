@@ -1,0 +1,123 @@
+.checkbox, .radio {
+    display: inline-flex;
+    padding: 0.6rem 0;
+    cursor: pointer;
+    .user-select(none);
+
+    &:hover {
+        .checkbox__mark, .radio__mark {border-color: @border-hover-color}
+
+        .checkbox__input:checked ~ .checkbox__mark, .radio__input:checked ~ .radio__mark {
+            background: @brand-primary;
+            border-color: @brand-primary;
+        }
+    }
+
+    &--danger, .form--danger & {
+        color: @brand-danger;
+
+        .checkbox__mark, .radio__mark {border-color: @brand-danger}
+
+        &:hover {
+            .checkbox__mark, .radio__mark {border-color: @brand-danger-hover}
+        }
+    }
+}
+
+.checkbox__mark, .radio__mark {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid @border-color;
+    background: #fff;
+    transition: 100ms ease-in-out;
+
+    &:after {
+        display: block;
+        width: 1.2rem;
+        height: 1.2rem;
+        line-height: 0;
+        opacity: 0;
+    }
+
+    .checkbox__input:checked ~ &, .radio__input:checked ~ & {
+        background: @brand-primary-lighten;
+        border-color: @brand-primary-lighten;
+
+        &:after {opacity: 1}
+    }
+}
+
+.checkbox__label, .radio__label {
+    flex: 1 0 auto;
+    margin: 0.2rem 0 0 1.4rem;
+    font-weight: @font-weight-base;
+    line-height: 1.4;
+}
+
+.checkbox__input, .radio__input {display: none}
+
+// Checkbox
+//
+// Slouží k výběru jedné nebo více možností.
+// * Pokud se u sebe vyskytuje více checkboxů, tak je obalit do wrapperu se třídou `.checkboxes`.
+//
+// Markup:
+// <label class="checkbox" for="checkbox_id_{{#if item_id}}{{item_id}}{{else}}0{{/if}}">
+//     <input class="checkbox__input" type="checkbox" name="checkbox_name" id="checkbox_id_{{#if item_id}}{{item_id}}{{else}}0{{/if}}">
+//     <div class="checkbox__mark"></div>
+//     <div class="checkbox__label">Checkbox možnost</div>
+// </label>
+//
+// Weight: 3
+//
+// Style guide: components.checkbox
+.checkbox__mark {
+    &:after {content: @icon-check-white}
+}
+
+// Radio
+//
+// Slouží k výběru pouze jedné možnosti z více možných. Používat v případě, pokud počet možností není větší než 5, v opačném případě nahradit [selectem](#kssref-components-selects).
+// * Musí být obalené wrapperem se třídou `.radios`.
+//
+// Markup:
+// <div class="radios">
+//     <label class="radio" for="radio_id{{#if item_id}}{{item_id}}{{/if}}_1">
+//         <input class="radio__input" type="radio" name="radio_name" value="1" id="radio_id{{#if item_id}}{{item_id}}{{/if}}_1">
+//         <div class="radio__mark"></div>
+//         <div class="radio__label">1. hodnota radia</div>
+//     </label>
+//     <label class="radio" for="radio_id{{#if item_id}}{{item_id}}{{/if}}_2">
+//         <input class="radio__input" type="radio" name="radio_name" value="2" id="radio_id{{#if item_id}}{{item_id}}{{/if}}_2">
+//         <div class="radio__mark"></div>
+//         <div class="radio__label">2. hodnota radia</div>
+//     </label>
+//     <label class="radio" for="radio_id{{#if item_id}}{{item_id}}{{/if}}_3">
+//         <input class="radio__input" type="radio" name="radio_name" value="3" id="radio_id{{#if item_id}}{{item_id}}{{/if}}_3">
+//         <div class="radio__mark"></div>
+//         <div class="radio__label">3. hodnota radia</div>
+//     </label>
+// </div>
+//
+// Weight: 4
+//
+// Style guide: components.radio
+.radio__mark {
+    border-radius: 50%;
+
+    &:after {
+        content: @icon-circle-white;
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+}
+
+.checkboxes, .radios {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

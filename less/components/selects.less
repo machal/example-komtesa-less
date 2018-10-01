@@ -1,0 +1,257 @@
+// Select
+//
+// Slouží k výběru pouze jedné možnosti z více možných. Používat v případě, pokud počet možností je větší než 5, v opačném případě nahradit [radio tlačítky](#kssref-components-radio).
+//
+// Markup:
+// <select class="select {{modifier_class}}" placeholder="Vyberte značku...">
+//     <option value="">Vyberte značku...</option>
+//     <optgroup label="Česká">
+//         <option value="damage">Škoda</option>
+//         <option value="upper-hungary-mountains">Tatra</option>
+//     </optgroup>
+//     <optgroup label="Německá">
+//         <option value="mercedes">Mercedes</option>
+//         <option value="audi" disabled>Audi</option>
+//         <option value="bmv">BMV</option>
+//     </optgroup>
+// </select>
+//
+// .select--danger - Select nemá vybranou hodnotu.
+// .select--dropdown-up - Dropdown se otevře směrem nahoru. Použít pouze v případě, když dropdown vytéká z obrazovky nebo z overflow.
+//
+// Weight: 6
+//
+// Style guide: components.selects
+.select {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: @select-maxwidth;
+    height: @select-height;
+    padding: @select-padding;
+    border: @select-border;
+    font-size: @font-size-base;
+    line-height: 1.4;
+    color: @text-base;
+    background: #fff;
+    .transition(@transition-animation);
+
+    &[disabled] {
+        height: auto;
+        color: @text-muted;
+        background: @bg-muted;
+    }
+
+    &:not([disabled]):hover {
+        &:not(.select--control), .select__input:not(.focus):not(.disabled) {border-color: @border-hover-color}
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &--danger:not([disabled]), .form--danger &:not([disabled]) {
+        &:not(.select--control), .select__input:not(.focus):not(.disabled) {
+            color: @select-danger-bcolor;
+            border-color: @select-danger-bcolor;
+
+            &:hover {border-color: @select-danger-hover-bcolor}
+        }
+
+        .select__input > input::placeholder {
+            color: @select-danger-bcolor;
+            opacity: 0.9;
+        }
+
+        .select__input > input:-ms-input-placeholder {color: @select-danger-bcolor}
+        .select__input > input::-ms-input-placeholder {color: @select-danger-bcolor}
+
+        .select__input.focus, .select__dropdown {border-color: @select-danger-hover-bcolor}
+        .select__dropdown {.box-shadow(@select-danger-focus-shadow)}
+    }
+
+    &--control {
+        padding: 0;
+        border: 0;
+    }
+
+    // Nevýrazný select
+    //
+    // Malý a nevýrazný select použiván k filtraci obsahu (počet položek, stav).
+    //
+    // Markup:
+    // <select class="select select--ghost {{modifier_class}}">
+    //     <option value="2018-01">01 / 2018</option>
+    //     <option value="2018-02">02 / 2018</option>
+    //     <option value="2018-03">03 / 2018</option>
+    //     <option value="2018-04" disabled>04 / 2018</option>
+    //     <option value="2018-05">05 / 2018</option>
+    // </select>
+    //
+    // Style guide: components.selects.ghost
+    &--ghost {
+        max-width: @select-ghost-maxwidth;
+        background: transparent;
+
+        &:not([disabled]):hover {
+            &, .select__input:not(.focus):not(.disabled) {border-color: transparent transparent @link-hover-color}
+        }
+
+        .select__input {
+            padding: 0 0.5rem;
+            border-color: transparent transparent @link-color;
+
+            &.focus {
+                border-color: @border-hover-color;
+                background: #fff;
+            }
+
+            &:after {border-top-color: @brand-primary}
+        }
+    }
+
+    &--dropdown-up {
+        .select__dropdown {
+            top: auto !important; // Resetuje inline styl vykreslený javascriptem
+            bottom: 100%;
+            border-top: 0.1rem solid @border-hover-color;
+            border-bottom: none;
+            .box-shadow(0 -0.2rem 0.5rem rgba(0, 0, 0, 0.2));
+        }
+
+        .select__input {
+            &:after {.rotate(-180deg)}
+            &.dropdown-active:after {.rotate(0deg)}
+        }
+    }
+}
+
+.select__input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: @select-height;
+    padding: @select-padding;
+    border: @select-border;
+    overflow: hidden;
+    .transition(@transition-animation);
+
+    &.disabled {
+        color: @text-muted;
+        background: @bg-muted;
+    }
+
+    &, & * {cursor: pointer}
+    &.input-active, &.input-active * {cursor: text}
+    &.disabled, &.disabled * {cursor: default}
+    &.focus {border-color: @border-hover-color}
+    &.not-full {color: @text-muted}
+
+    & > input {
+        display: inline-block;
+        padding: 0;
+        height: 100%;
+        min-height: 0;
+        max-height: none;
+        max-width: 100%;
+        border: none;
+        text-indent: 0;
+        line-height: inherit;
+        background: none;
+        -webkit-user-select: auto;
+
+        &:focus {outline: none}
+        &::-ms-clear {display: none}
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        margin-left: auto;
+        border: 0.5rem solid transparent;
+        border-bottom-width: 0;
+        border-top-color: @text-muted;
+        .rotate(0deg);
+        .transition(300ms ease-in-out);
+    }
+
+    &.dropdown-active:after {.rotate(-180deg)}
+}
+
+.select__dropdown {
+    position: absolute;
+    max-height: @select-list-maxheight;
+    border: 0.1rem solid @border-hover-color;
+    border-top: none;
+    background: #fff;
+    cursor: pointer;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    z-index: @zindex-dropdown;
+    .box-shadow(@btn-default-hover-shadow);
+}
+
+.select__list {
+    .optgroup:not(:first-child) {border-top: 0.1rem solid @border-color}
+
+    .option, .optgroup-header {
+        padding: @select-option-padding;
+    }
+
+    .option {
+        &[data-selectable] {
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        &[data-disabled], &:not([data-selectable]) {
+            color: @text-muted;
+            cursor: inherit;
+        }
+    }
+
+    .optgroup-header {
+        font-size: @font-size-sm;
+        font-weight: @font-weight-bold;
+        cursor: default;
+    }
+
+    .active {background: @select-option-action-bg}
+    .highlight {background: @select-option-highlight-bg}
+}
+
+// Přenesení stylů pro jQuery UI
+.ui-menu {
+    max-height: @select-list-maxheight;
+    padding: 0;
+    border-top-width: 0;
+    border-radius: 0;
+    border-color: @border-hover-color;
+    background: #fff;
+    font-family: @font-family-base;
+    font-size: @font-size-base;
+    font-weight: @font-weight-base;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .box-shadow(0 -1px 0 @border-hover-color, @btn-default-hover-shadow;);
+    .user-select(none);
+}
+
+.ui-menu .ui-menu-item a {
+    padding: @select-option-padding;
+    line-height: 1.4;
+    cursor: pointer;
+
+    &, &:focus {color: @text-base}
+}
+
+.ui-menu .ui-menu-item a.ui-state-hover {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    background: @select-option-action-bg;
+}

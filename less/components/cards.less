@@ -1,0 +1,87 @@
+// Karta
+//
+// Karty pro rozložení obsahu na stránce.
+// * Lze kombinovat i ostatními komponentami.
+// * Pokud nadpis přímo nesouvisí s obsahem (např. obsahuje taby), je potřeba k hlavičce třídu `card__header--bordered`.
+// * Pokud chceme v `.card__body` menší padding, můžeme použít třídu `.card__body--smaller`.
+// * Pokud mám v `.card__footer` jeden prvek a chci ho zarovnat doprava, použiji modifikátor `card__footer--end`.
+//
+// Markup:
+// <div class="card">
+//     <div class="card__header {{#if header_class}}{{header_class}}{{/if}}">
+//         {{#if header_content}}{{header_content}}{{else}}<div class="card__title">Titulek karty</div>{{/if}}
+//     </div>
+//     <div class="card__body">
+//         {{#if body_content}}{{body_content}}{{else}}Obsah karty...{{/if}}
+//     </div>
+//     {{#unless hide_footer}}
+//     <div class="card__footer">
+//         {{#if footer_content}}{{footer_content}}{{else}}Patička karty...{{/if}}
+//     </div>
+//     {{/unless}}
+// </div>
+//
+// Weight: 10
+//
+// Style guide: components.cards
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: @card-bg;
+    .box-shadow(@card-shadow);
+}
+
+.card__header, .card__footer {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    & > *:not(:first-child) {margin-left: @space-value-1}
+}
+
+.card__header {
+    padding: @card-header-padding;
+    min-height: 6rem;
+    border-bottom: 1px solid transparent;
+
+    &--bordered {border-color: @card-inner-bcolor}
+    &:not(&--bordered) + .card__body {padding-top: 0.5rem}
+}
+
+.card__body {
+    flex: 1 0 auto;
+    padding: @card-body-padding;
+
+    &--smaller {
+        padding: 1.5rem;
+    }
+}
+
+.card__title {
+    margin: 0;
+    font-weight: @font-weight-black;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.card__footer {
+    padding: @card-footer-padding;
+    border-top: 1px solid @card-inner-bcolor;
+
+    &--end {
+        justify-content: flex-end;
+    }
+
+    & ~ .card__body {padding-bottom: 2rem}
+}
+
+// Ukázky karet
+//
+// Ukázky, jak lze karty používat.
+//
+// Markup: cards.hbs
+//
+// Style guide: components.cards.examples

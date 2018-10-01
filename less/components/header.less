@@ -1,0 +1,89 @@
+// Přenesená komponenta z původní Bodovky, není součástí styleguidu.
+
+.header {
+    margin-bottom: @space-value-4;
+    line-height: 1.4;
+    z-index: @zindex-navbar;
+    .user-select(none);
+}
+
+.header__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: @zindex-navbar-fixed;
+    .transition(box-shadow 100ms ease);
+
+    &--scrolled {.box-shadow(0 0 1rem rgba(0, 0, 0, 0.4))}
+}
+
+.header__top-panel {
+    background: @brand-primary;
+
+    @media (max-width: @screen-xs-max) {padding: 0.5rem 0}
+    @media (min-width: @screen-sm-min) {padding: 1.2rem 0}
+}
+
+.header__middle-panel {
+    background: @bg-darker;
+    border-bottom: 0.1rem solid @border-color;
+
+    @media (max-width: @screen-xs-max) {padding: 1.6rem 0}
+    @media (min-width: @screen-sm-min) {padding: 1rem 0}
+}
+
+.header__bottom-panel {
+    background: #fff;
+    border-bottom: 0.1rem solid @border-color;
+
+    @media (max-width: @screen-xs-max) {padding: 1.6rem 0}
+    @media (min-width: @screen-sm-min) {padding: 1.8rem 0}
+}
+
+.header__brand {
+    display: flex;
+    align-items: center;
+
+    & > *:not(:first-child) {margin-left: @space-value-3}
+}
+
+.header__logo {height: 3.4rem}
+
+.header__website-name {
+    font-weight: @font-weight-bold;
+    text-decoration: none;
+    line-height: 1;
+
+    &, &:hover, &:focus {color: #fff}
+
+    @media (max-width: @screen-xs-max) {font-size: 2.4rem}
+    @media (min-width: @screen-sm-min) {font-size: 3.2rem}
+}
+
+.header__nav-toggle {
+    padding: 1.2rem 1.4rem;
+    border: none;
+    border-radius: 0.4rem;
+    color: #fff;
+    background: #3e4955;
+    font-size: 1.6rem;
+    line-height: 1;
+
+    &:focus {outline: none}
+}
+
+
+.header-page-heading {
+    margin: 0;
+    color: @brand-primary;
+}
+
+@media (min-width: @screen-md-min) {
+    /* Fix hlavičky po otevření bootstrap 3 modalu */
+    .modal-open {
+        .header__fixed {
+            padding-right: 17px;
+        }
+    }
+}

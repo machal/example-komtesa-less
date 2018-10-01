@@ -1,0 +1,20 @@
+// Řazení
+//
+// Odkaz, který přenačte stránku se změněným řazením v číselníku.
+//
+// Markup: <a href="#" class="sort">{{#if text}}{{text}}{{else}}Jméno{{/if}}<i class="sort__icon {{#if icon}}{{icon}}{{else}}fas fas fa-sort{{/if}}"></i></a>
+//
+// Weight: 12
+//
+// Style guide: components.sort
+.sort {
+    display: inline-block;
+    color: @text-base;
+    font-weight: @font-weight-bold;
+    text-decoration: none;
+
+    &__icon {
+        color: @link-color;
+        margin-left: @space-value-1;
+    }
+}

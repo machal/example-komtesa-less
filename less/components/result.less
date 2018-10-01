@@ -1,0 +1,27 @@
+// Výsledek číselníku
+//
+// Zobrazuje počet položek a také položky, které jsou v číselníku aktuálně zobrazené. Lze používat s [nevýrazným selektem](#kssref-components-selects-ghost).
+//
+// Markup:
+// <div class="result">
+//     {{> components.selects.ghost modifier_class="select--dropdown-up" }}
+//     <div class="result__info">1 - 15 z 33 587 záznamů</div>
+// </div>
+//
+// Weight: 14
+//
+// Style guide: components.result
+.result {
+    display: inline-flex;
+    align-items: center;
+
+    & > * {
+        flex: 0 0 auto;
+
+        &:not(:first-child) {margin-left: @space-value-3}
+    }
+
+    & > .selectized:first-child + .select {margin-left: 0}
+
+    &__info {font-size: @font-size-sm}
+}

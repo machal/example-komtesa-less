@@ -1,0 +1,25 @@
+// Přenesená komponenta z původní Bodovky, není součástí styleguidu.
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    color: @text-muted;
+    &:extend(.list-unstyled);
+}
+
+.breadcrumb__item {
+    margin: 0.2rem 0;
+    white-space: nowrap;
+
+    &:not(:last-child):after {
+        content: '';
+        display: inline-block;
+        width: 0.4rem;
+        height: 1.5rem;
+        margin: 0 @space-value-2;
+        background: @icon-caret-right-muted center no-repeat;
+        vertical-align: text-bottom;
+    }
+}
+
+.breadcrumb__divider {display: none}

@@ -1,0 +1,22 @@
+// Cena s měnou
+//
+// Vykresluje cenu s měnou (body).
+//
+// Markup: <span class="price">{{#if value}}{{value}}{{else}}25 800{{/if}}</span>
+//
+// Weight: 16
+//
+// Style guide: components.price
+.price {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+
+    &:after {
+        content: '';
+        width: 0.6rem;
+        height: 0.6rem;
+        margin-left: @space-value-2;
+        background: @icon-circle-info;
+    }
+}

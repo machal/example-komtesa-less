@@ -1,0 +1,80 @@
+@flex-width-1: 100% / 12 * 1;
+@flex-width-2: 100% / 12 * 2;
+@flex-width-3: 100% / 12 * 3;
+@flex-width-4: 100% / 12 * 4;
+@flex-width-5: 100% / 12 * 5;
+@flex-width-6: 100% / 12 * 6 ;
+@flex-width-7: 100% / 12 * 7;
+@flex-width-8: 100% / 12 * 8;
+@flex-width-9: 100% / 12 * 9;
+@flex-width-10: 100% / 12 * 10;
+@flex-width-11: 100% / 12 * 11;
+@flex-width-12: 100%;
+
+.container {
+    .container-fixed();
+
+    @media (min-width: @screen-sm-min) {width: @container-sm}
+    @media (min-width: @screen-md-min) {width: @container-md}
+    @media (min-width: @screen-lg-min) {width: @container-lg}
+
+    &-fluid {.container-fixed()}
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-right: -(@grid-gutter-width / 2);
+    margin-left: -(@grid-gutter-width / 2);
+
+    & > * {
+        width: 100%;
+        padding-left: (@grid-gutter-width / 2);
+        padding-right: (@grid-gutter-width / 2);
+    }
+}
+
+.flex-grid(@name: ~'') {
+    .col@{name} {
+        flex: 1 0 0;
+        max-width: 100%;
+
+        &-1  {flex: 0 0 @flex-width-1;  max-width: @flex-width-1}
+        &-2  {flex: 0 0 @flex-width-2;  max-width: @flex-width-2}
+        &-3  {flex: 0 0 @flex-width-3;  max-width: @flex-width-3}
+        &-4  {flex: 0 0 @flex-width-4;  max-width: @flex-width-4}
+        &-5  {flex: 0 0 @flex-width-5;  max-width: @flex-width-5}
+        &-6  {flex: 0 0 @flex-width-6;  max-width: @flex-width-6}
+        &-7  {flex: 0 0 @flex-width-7;  max-width: @flex-width-7}
+        &-8  {flex: 0 0 @flex-width-8;  max-width: @flex-width-8}
+        &-9  {flex: 0 0 @flex-width-9;  max-width: @flex-width-9}
+        &-10 {flex: 0 0 @flex-width-10; max-width: @flex-width-10}
+        &-11 {flex: 0 0 @flex-width-11; max-width: @flex-width-11}
+        &-12 {flex: 0 0 @flex-width-12; max-width: @flex-width-12}
+        &-auto {flex: 0 0 auto; width: auto; max-width: none}
+    }
+
+    .offset@{name} {
+        &-0  {margin-left: 0}
+        &-1  {margin-left: @flex-width-1}
+        &-2  {margin-left: @flex-width-2}
+        &-3  {margin-left: @flex-width-3}
+        &-4  {margin-left: @flex-width-4}
+        &-5  {margin-left: @flex-width-5}
+        &-6  {margin-left: @flex-width-6}
+        &-7  {margin-left: @flex-width-7}
+        &-8  {margin-left: @flex-width-8}
+        &-9  {margin-left: @flex-width-9}
+        &-10 {margin-left: @flex-width-10}
+        &-11 {margin-left: @flex-width-11}
+        &-12 {margin-left: @flex-width-12}
+    }
+}
+
+.flex-grid();
+@media (min-width: @screen-sm-min) {.flex-grid(~'-sm')}
+@media (min-width: @screen-md-min) {.flex-grid(~'-md')}
+@media (min-width: @screen-lg-min) {.flex-grid(~'-lg')}

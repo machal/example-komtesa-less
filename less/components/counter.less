@@ -1,0 +1,50 @@
+// Počítadlo
+//
+// Zobrazuje počet, který se používá s ikonou. Pokud chci tento nastylovaný počet zobrazit v menu položce, použiji třídu `counter--menu`. Při použití v menu se už ikona neuvádí.
+//
+// Weight: 21
+//
+// Markup:
+//  <div class="counter">
+//      <i class="far fa-bell counter__icon"></i>
+//      <span class="counter__value">22</span>
+//  </div>
+//
+// Style guide: components.counter
+.counter {
+    position: relative;
+    display: inline-block;
+
+    &--menu {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        .translate(0, -50%);
+
+        .counter__value {
+            right: 0;
+            border: none;
+        }
+    }
+}
+
+.counter__icon {
+    font-size: 3rem;
+}
+
+.counter__value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: -1rem;
+    width: 2rem;
+    height: 2rem;
+    border: 0.1rem solid #f8f8f8;
+    border-radius: 50%;
+    font-size: @font-size-sm;
+    color: #fff;
+    background-color: #dcba1c;
+    .translate(0, -50%);
+}

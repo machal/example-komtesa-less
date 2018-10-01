@@ -1,0 +1,162 @@
+// Modal
+//
+// Slouží pro zobrazení zbylého obsahu nebo pro oznámení.
+// * Přestylování modal z [Bootstrap 3](https://getbootstrap.com/docs/3.3/javascript/#modals).
+// * Lze do něho vložit [tabs--list](#kssref-components-tabs).
+// * Pokud jde o oznámení, tak nepoužívat hlavičku ale pouze přidat [featured](#kssref-components-featured) k `modal__content`.
+// * Nekombinovat s kartami.
+//
+// Weight: 11
+//
+// Markup: modals.hbs
+//
+// Style guide: components.modal
+
+.fade {.transition(opacity @fade-animation)}
+
+.modal-open {
+    overflow: hidden;
+
+    .modal {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: @modal-backdrop-bg;
+    opacity: 0;
+    z-index: @zindex-modal-bg;
+
+    &.in {opacity: @modal-backdrop-opacity}
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    overflow: hidden;
+    z-index: @zindex-modal;
+    -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    outline: 0;
+
+    &.in {
+        opacity: 1;
+
+        .modal__dialog {.translate(0, 0)}
+    }
+}
+
+.modal__dialog {
+    position: relative;
+
+    .translate(0, -25%);
+    .transition-transform(@fade-animation);
+
+    @media (max-width: @screen-xs-max) {
+        width: @modal-dialog-width-xs-down;
+        margin: 1rem;
+    }
+
+    @media (min-width: @screen-sm-min) {
+        width: @modal-dialog-width-sm-up;
+        margin: 3rem auto;
+    }
+}
+
+.modal__content {
+    position: relative;
+    background: @modal-content-bg;
+    background-clip: padding-box;
+    outline: 0;
+
+    &--center {
+        text-align: center;
+
+        .modal__footer {justify-content: center}
+    }
+}
+
+.modal__header, .modal__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.modal__header {
+    justify-content: space-between;
+    padding: 0.8rem 2rem;
+    color: @modal-header-color;
+    background: @modal-header-bg;
+
+    & + .tabs {margin-top: @space-value-1}
+}
+
+.modal__title {
+    margin: 0;
+    line-height: 1.4;
+    font-size: @font-size-lg;
+    font-weight: @font-weight-base;
+    color: #fff;
+}
+
+.modal__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-left: -1rem;
+    border: none;
+    font-size: @font-size-lg;
+    line-height: 0;
+    color: #fff;
+    background: none;
+    opacity: 0.8;
+    -webkit-appearance: none;
+    .transition(@transition-animation);
+    .user-select(none);
+
+    &:hover, &:focus {
+        opacity: 1;
+        outline: none;
+    }
+}
+
+.modal__body {
+    position: relative;
+    padding: 2.5rem 2rem;
+}
+
+.modal__footer {
+    justify-content: flex-end;
+    padding: 1.4rem 2rem;
+    border-top: 0.1rem solid @border-color;
+    background: @modal-footer-bg;
+
+    & > *:not(:first-child) {
+        margin-left: @space-value-2;
+    }
+}
+
+.modal__icon {
+    font-size: 5rem; // Velikost ikony
+    margin-bottom: @space-value-3;
+}
+
+.modal-scrollbar-measure {
+    position: absolute;
+    top: -9999px;
+    width: 50px;
+    height: 50px;
+    overflow: scroll;
+}

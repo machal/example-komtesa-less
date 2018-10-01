@@ -1,0 +1,234 @@
+// Alerty
+//
+// * Systémové zprávy, které se zobrazí po nějaké akci. Nepoužívat jako blok textu v obsahových stránkách.
+// * Inverzní alerty .alert--inverse slouží pro vyskakovací popup okna, které po chvilce zmizí. Nepoužívat jako klasické systémové zprávy.
+// * Zavírací alerty .alert--closable pro zavírající systémové zprávy. Použití společně s inverzními alerty ve vyskakujících popup oknech.
+//
+// Markup:
+// <div class="alert {{modifier_class}}">
+//      <div class="alert__icon"></div>
+//      <div class="alert__content">
+//          <div class="alert__heading">{{#if heading}}{{heading}}{{else}}Message{{/if}}</div>
+//          <div>{{#if content}}{{content}}{{else}}Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet cumque cupiditate distinctio dolore et minima nulla placeat unde, voluptate?{{/if}}</div>
+//          <a class="alert__close" data-alert-close ><i class="fas fa-times"></i></a>
+//      </div>
+//      <div class="alert__countdown">
+//          <div class="alert__countdown-bar" data-alert-countdown></div>
+//      </div>
+// </div>
+//
+// .alert--success.alert--closable - Systémová zpráva. Zobrazí se pokud se akce zdařila.
+// .alert--info.alert--closable - Systémová zpráva. Zobrazí se pokud uživatele chceme o něčem informovat.
+// .alert--warning.alert--closable - Systémová zpráva. Zobrazí se pokud se stalo něco špatně.
+// .alert--danger.alert--closable - Systémová zpráva. Zobrazí se pokud se vyskytla na webu chyba.
+// .alert--inverse.alert--success - Zpráva pro vyskakující okno. Zobrazí se pokud se akce zdařila. Zprávu je možno křížkem zavřít.
+// .alert--inverse.alert--info - Zpráva pro vyskakující okno. Zobrazí se pokud uživatele chceme o něčem informovat. Zprávu je možno křížkem zavřít.
+// .alert--inverse.alert--warning - Zpráva pro vyskakující okno. Zobrazí se pokud se stalo něco špatně. Zprávu je možno křížkem zavřít.
+// .alert--inverse.alert--danger - Zpráva pro vyskakující okno. Zobrazí se pokud se vyskytla na webu chyba. Zprávu je možno křížkem zavřít.
+//
+// Weight: 1
+//
+// Style guide: components.alerts
+
+.alert {
+    position: relative;
+    display: flex;
+    padding: 0;
+    margin-bottom: 0;
+    min-height: 65px;
+    border: none;
+    color: #fff;
+
+    &--inverse {
+        padding: @space-value-2;
+        margin-bottom: @space-value-2;
+        min-height: auto;
+        border: 0.1rem solid;
+        border-left-width: 0.3rem;
+        color: @text-base;
+
+        .alert__icon {
+            align-items: flex-start;
+            padding: 0;
+            line-height: @line-height-base;
+
+            @media (max-width: @screen-xs-max) {align-items: flex-start;}
+
+            &:before {
+                width: 1.3rem;
+            }
+        }
+
+        &.alert--success {
+            border-color: @brand-success;
+            background-color: #fff;
+
+            .alert__icon {background-color: #fff;}
+        }
+
+        &.alert--info {
+            border-color: @brand-info;
+            background-color: #fff;
+
+            .alert__icon {background-color: #fff;}
+        }
+
+        &.alert--warning {
+            border-color: @brand-warning;
+            background-color: #fff;
+
+            .alert__icon {background-color: #fff;}
+        }
+
+        &.alert--danger {
+            border-color: @brand-danger;
+            background-color: #fff;
+
+            .alert__icon {background-color: #fff;}
+
+        }
+
+        .alert__content {
+            padding: 0 0 0 @space-value-2;
+        }
+
+        .alert__countdown {
+            display: none;
+        }
+
+
+    }
+
+    &--closable {
+        .alert__close {
+            display: block;
+        }
+    }
+
+    &--success {
+        background-color: @brand-success;
+
+        .alert__countdown-bar {background-color: darken(@brand-success, 15%)}
+
+        .alert__close {
+            color: @alert-success-light;
+
+            &:hover { color: darken(@alert-success-light, 5%); }
+        }
+
+        .alert__icon {
+            background-color: @alert-success-light;
+
+            &:before {content: @icon-check-success;}
+        }
+    }
+
+    &--info {
+        background-color: @brand-info;
+
+        .alert__countdown-bar {background-color: darken(@brand-info, 15%)}
+
+        .alert__close {
+            color: @alert-info-light;
+
+            &:hover { color: darken(@alert-info-light, 5%); }
+        }
+
+        .alert__icon {
+            background-color: @alert-info-light;
+
+            &:before {content: @icon-info-circle-blue;}
+        }
+    }
+
+    &--warning {
+        background-color: @brand-warning;
+
+        .alert__countdown-bar {background-color: darken(@brand-warning, 15%)}
+
+        .alert__close {
+            color: @alert-warning-light;
+
+            &:hover { color: darken(@alert-warning-light, 5%); }
+        }
+
+        .alert__icon {
+            background-color: @alert-warning-light;
+
+            &:before {content: @icon-exclamation-triangle-warning;}
+        }
+    }
+
+    &--danger {
+        background-color: @brand-danger;
+
+        .alert__countdown-bar {background-color: darken(@brand-danger, 15%)}
+
+        .alert__close {
+            color: @alert-danger-light;
+
+            &:hover { color: darken(@alert-danger-light, 5%); }
+        }
+
+        .alert__icon {
+            background-color: @alert-danger-light;
+
+            &:before {content: @icon-times-danger;}
+        }
+    }
+}
+
+.alert__heading {
+    font-weight: @font-weight-bold;
+}
+
+.alert__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: @space-value-2 1.8rem;
+}
+
+.alert__icon {
+    display: flex;
+    align-items: center;
+    padding: @space-value-2 1.8rem;
+    line-height: 1;
+
+    @media (max-width: @screen-xs-max) {align-items: flex-start;}
+
+    &:before {
+        display: inline-block;
+        margin: 0 auto;
+        width: 3rem;
+    }
+}
+
+.alert__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.8rem;
+    display: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: lighten(@text-base, 15%);
+
+    &:hover {color: @text-base}
+}
+
+.alert__countdown {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+}
+
+.alert__countdown-bar {
+    width: 0%;
+    height: 0.3rem;
+}
+
+
+
+

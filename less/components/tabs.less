@@ -1,0 +1,135 @@
+// Taby
+//
+// Taby umožňující přepínání mezi obsahem.
+// * Musí obsahovat jeden z vydefinovaných modifikátorů, výchozí třída pouze dodává sdílené parametry a nesmí se používat samostatně.
+// * Na Bodovce se zatím počítá s tím, že půjde o nastylováné odkazy.
+// * Stav warning u tabu se zatím vyskytuje jen u modifikátoru `.tabs--list`.
+//
+// Markup:
+// <nav class="tabs {{modifier_class}}">
+// {{> components.tabs.tab text="Všichni" modifier_class="tabs__tab--current" data-tab="#tab-1"}}
+// {{> components.tabs.tab text="Pracoviště" modifier_class="tabs__tab--warning" data-tab="#tab-2"}}
+// {{> components.tabs.tab text="Čekající (10)" modifier_class="" data-tab="#tab-3"}}
+// </nav>
+//
+// Weight: 9
+//
+// .tabs--pills - Taby připomínající tlačítka, používají se mimo kartu, např. na přepínání mezi stavy číselníku.
+// .tabs--heading - Používají se v hlavičce karty a zaroveň nahrazují její nadpis.
+// .tabs--list - Používají se v hlavičce karty (v případě, že již má jiný nadpis) a modalu.
+//
+// Style guide: components.tabs
+.tabs {
+    display: flex;
+    overflow-y: auto;
+    white-space: nowrap;
+
+    &--pills {
+        padding: 1rem 0;
+
+        .tabs__tab {
+            padding: @tabs-pills-tab-padding;
+            border: @tabs-pills-tab-border;
+            border-radius: @tabs-pills-tab-radius;
+
+            &--current {
+                color: @tabs-pills-tab-current-color;
+                background: @tabs-pills-tab-current-bg;
+                border-color: @tabs-pills-tab-current-bcolor;
+                text-shadow: @tabs-pills-tab-current-tshadow;
+                .box-shadow(@tabs-pills-tab-current-shadow);
+
+                .text-muted {color: lighten(@text-muted, 18%)}
+            }
+
+            &:not(.tabs__tab--current):hover {
+                background: @tabs-pills-tab-hover-bg;
+                border-color: @tabs-pills-tab-hover-bcolor;
+                .box-shadow(@tabs-pills-tab-hover-shadow);
+            }
+
+            &:not(:first-child) {
+                margin-left: @space-value-3;
+            }
+        }
+    }
+
+    &--heading {
+        .tabs__tab {
+            padding: 2rem 0 2.1rem;
+            border-top: 0.1rem solid transparent;
+            font-weight: @font-weight-black;
+            text-transform: uppercase;
+
+            &--current {
+                border-color: @tab-current-bcolor;
+            }
+
+            &:not(:first-child) {
+                margin-left: @space-value-4;
+            }
+        }
+    }
+
+    &--list {
+        padding: 0 2rem;
+        .box-shadow(inset 0 -0.1rem 0 @border-color);
+
+        .tabs__tab {
+            padding: 1.2rem 1.8rem;
+            border-bottom: 0.1rem solid transparent;
+
+            &--current {
+                border-color: @tab-current-bcolor;
+            }
+
+            &--warning:after {
+                position: absolute;
+                top: 0.6rem;
+                right: 0.2rem;
+                content: @icon-exclamation-triangle-warning;
+                display: block;
+                width: 1.2rem;
+                height: 1.1rem;
+            }
+        }
+    }
+}
+
+// Tab
+//
+// Předpřipravený tab, který se nedá použít samostatně a jeho vzhled se mění podle modifikátoru [hlavního bloku](#kssref-components-tabs). Dají se na něj navěsit modifikátory definující jeho stav.
+//
+// Markup: <a class="tabs__tab {{modifier_class}}" {{#if data-tab}}data-tab="{{data-tab}}"{{/if}}>{{#if text}}{{text}}{{else}}Čekající (81){{/if}}</a>
+//
+// .tabs__tab--current - Aktuální záložka.
+// .tabs__tab--warning - [Pouze v blocku s modifikátorem `.tabs--list`] Upozornění, které má připoutat pozornost uživatele.
+//
+//
+// Style guide: components.tabs.tab
+.tabs__tab {
+    position: relative;
+    display: inline-block;
+    color: @text-base;
+    line-height: 1.4;
+    cursor: pointer;
+    .transition(@transition-animation);
+    .user-select(none);
+
+    &, &:hover, &:focus {
+        outline: none;
+        text-decoration: none;
+    }
+
+    &--current {
+        color: @tab-current-color;
+    }
+}
+
+.tabs__content {
+    display: none;
+
+    &--current {
+        display: inherit;
+    }
+}

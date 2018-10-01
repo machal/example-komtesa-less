@@ -1,0 +1,144 @@
+<div class="row align-items-stretch">
+    <div class="col-sm-6 col-md-4">
+        <div class="card">
+            <div class="card__header"><div class="card__title">Titulek karty</div></div>
+            <div class="card__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="card__footer">Patička karty...</div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 mt-4 mt-sm-0">
+        <div class="card">
+            <div class="card__header">{{> components.tabs modifier_class="tabs--heading" }}</div>
+            <div class="card__body">
+                <div class="tabs__content" id="tab-1">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+                <div class="tabs__content" id="tab-2">
+                    Black, aroma skinny, qui cream to go plunger pot barista. Crema, irish white, viennese cup, cream carajillo sit coffee bar foam instant. Java, irish grounds percolator so, foam froth crema rich latte beans.
+                </div>
+                <div class="tabs__content" id="tab-3">
+                    Doppio black carajillo cup, instant, and iced ristretto froth in instant whipped.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 mt-4 mt-md-0">
+        <div class="card">
+            <div class="card__header"><div class="card__title">Titulek karty</div></div>
+            {{> components.tabs modifier_class="tabs--list" }}
+            <div class="card__body">
+                <div class="tabs__content" id="tab-1">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+                <div class="tabs__content" id="tab-2">
+                    Black, aroma skinny, qui cream to go plunger pot barista. Crema, irish white, viennese cup, cream carajillo sit coffee bar foam instant. Java, irish grounds percolator so, foam froth crema rich latte beans.
+                </div>
+                <div class="tabs__content" id="tab-3">
+                    Doppio black carajillo cup, instant, and iced ristretto froth in instant whipped.
+                </div>
+            </div>
+            <div class="card__footer">Patička karty...</div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 mt-4">
+        <div class="card">
+            <div class="card__header"><div class="card__title"><i class="fas fa-users text-icon--left"></i>Titulek karty</div></div>
+            <div class="card__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="card__footer">Patička karty...</div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 mt-4">
+        <div class="card">
+            <div class="card__header card__header--bordered"><div class="card__title">Titulek karty</div></div>
+            <div class="card__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="card__footer">Patička karty...</div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 mt-4">
+        <div class="card">
+            <div class="card__header">
+                <div class="card__title">Titulek karty</div>
+                {{> components.selects.ghost }}
+            </div>
+            <div class="card__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="card__footer">
+                {{> components.selects.ghost }}
+                <div>Patička karty...</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 mt-4">
+        <div class="card">
+            <div class="card__header"><div class="card__title"><i class="fas fa-users text-icon--left"></i>Titulek karty</div></div>
+            <div class="card__body">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Pošta</th>
+                                <th align="right">Produkce</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-muted" width="75">582 91</td>
+                                <td>Havlíčkův Brod</td>
+                                <td align="right">500 {{> components.value modifier_class="value--increase" text="80 %" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted" width="75">582 91</td>
+                                <td>Havlíčkův Brod</td>
+                                <td align="right">1 968 {{> components.value modifier_class="value--drop" text="25 %" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted" width="75">582 91</td>
+                                <td>Havlíčkův Brod</td>
+                                <td align="right">99 {{> components.value modifier_class="value--increase" text="100 %" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted" width="75">582 91</td>
+                                <td>Havlíčkův Brod</td>
+                                <td align="right">800 {{> components.value modifier_class="value--drop" text="150 %" }}</td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted" width="75">582 91</td>
+                                <td>Havlíčkův Brod</td>
+                                <td align="right">1 {{> components.value modifier_class="value--increase" text="120 %" }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card__footer">
+                {{> components.selects.ghost }}
+                <button class="btn btn--ghost" type="button">Přehled pošt<i class="fas fa-chevron-right text-icon--right"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 mt-4">
+        <div class="card">
+            <div class="card__header"><div class="card__title">Titulek karty</div></div>
+            <div class="card__body">
+                <div class="row mb-3">
+                    <div class="col-6">{{> components.stats modifier_class="featured featured--left featured--info" }}</div>
+                    <div class="col-6">{{> components.stats }}</div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="card__footer">Patička karty...</div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4 mt-4">
+        <div class="card featured featured--info">
+            <div class="card__header"><div class="card__title">Titulek karty</div></div>
+            <div class="card__body">
+                <div class="row mb-3">
+                    <div class="col-6">{{> components.stats modifier_class="featured featured--left featured--info" }}</div>
+                    <div class="col-6">{{> components.stats }}</div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="card__footer">Patička karty...</div>
+        </div>
+    </div>
+</div>

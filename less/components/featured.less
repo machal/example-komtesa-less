@@ -1,0 +1,20 @@
+// Blok featured
+//
+// Zvýraznění bloku tučnou čarou. Použití pro statistické informace, karty a modalové okna. Defaultně se linka zobrazí na vrchní straně boxu, modifikátorem .featured--left jí přesuneme doleva. Barvu linky určujeme modifikátory .feature--info/success/warning/danger.
+//
+// Weight: 18
+//
+// Style guide: components.featured
+.featured {
+    border-top: @featured-border;
+
+    &--left {
+        border-top: none;
+        border-left: @featured-border;
+    }
+
+    &--info { border-color: @brand-info; }
+    &--success { border-color: @brand-success; }
+    &--warning { border-color: @brand-warning; }
+    &--danger { border-color: @brand-danger; }
+}

@@ -1,0 +1,57 @@
+// Stránkování
+//
+// Zobrazuje aktuální stránku a zároveň slouží k navigaci mezi ostatními.
+//
+// Markup:
+// <div class="pagination">
+//     <div class="pagination__link"><i class="fas fa-angle-double-left"></i></div>
+//     <div class="pagination__link"><i class="fas fa-angle-left"></i></div>
+//     <div class="pagination__text">Stránka</div>
+//     <input class="pagination__input" type="text" name="page" value="1">
+//     <div class="pagination__text">ze 123</div>
+//     <a class="pagination__link" href="#"><i class="fas fa-angle-right"></i></a>
+//     <a class="pagination__link" href="#"><i class="fas fa-angle-double-right"></i></a>
+// </div>
+//
+// Weight: 13
+//
+// Style guide: components.pagination
+.pagination {
+    display: inline-flex;
+    align-items: center;
+
+    &__text, &__link {padding: 0.6rem 1rem}
+
+    &__text, &__input {
+        font-size: @font-size-sm;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    &__link {
+        color: @text-muted;
+        line-height: 0;
+
+        a& {
+            color: @link-color;
+
+            &:hover {color: @link-hover-color}
+        }
+    }
+
+    &__input {
+        width: 3.4rem;
+        height: 2.7rem;
+        padding: 0.2rem;
+        border: 0.1rem solid @border-color;
+        color: @text-base;
+        background: #fff;
+        -webkit-appearance: none;
+        .transition(@transition-animation);
+
+        &:hover, &:focus {
+            outline: none;
+            border-color: @border-hover-color;
+        }
+    }
+}

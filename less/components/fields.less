@@ -1,0 +1,89 @@
+// Pole
+//
+// Inputové pole pro vkládání textu.
+//
+// Markup: <input class="field {{modifier_class}}" type="text" name="text_input">
+//
+// .field--danger - Pole obsahuje nevalidní data nebo není vyplněno.
+// .field--filter - Pole určené k filtraci obsahu (jméno, pošta...).
+//
+// Weight: 5
+//
+// Style guide: components.field
+.field {
+    display: block;
+    width: 100%;
+    min-width: @field-minwidth;
+    max-width: @field-maxwidth;
+    height: @field-height;
+    padding: @field-padding;
+    border: @field-border;
+    font-size: @font-size-base;
+    line-height: 1.4;
+    color: @text-base;
+    background: #fff;
+    -webkit-appearance: none;
+    .transition(@transition-animation);
+
+    &:not([disabled]):not([readonly]):hover, &:not([readonly]):focus {border-color: @border-hover-color}
+
+    &:not([readonly]):focus {
+        outline: none;
+        .box-shadow(@field-focus-shadow);
+    }
+
+    &::-ms-expand {
+        border: 0;
+        background-color: transparent;
+    }
+
+    &::-ms-clear {display: none}
+
+    &[disabled] {
+        color: @text-muted;
+        background: @bg-muted;
+    }
+
+    &[readonly] {
+        padding: 0;
+        border-color: transparent;
+    }
+
+    &--filter {
+        max-width: 21rem;
+        padding-right: 2.8rem;
+        background: @icon-filter-muted right 0.8rem center no-repeat #fff;
+
+        & ~ .field__clean {
+            right: 2.5rem;
+            width: 2rem;
+        }
+    }
+
+    &--danger:not([disabled]), .form--danger &:not([disabled]) {
+        color: @field-danger-bcolor;
+        border-color: @field-danger-bcolor;
+
+        &:hover, &:focus {border-color: @field-danger-hover-bcolor}
+        &:focus {.box-shadow(@field-danger-focus-shadow)}
+    }
+}
+
+.field__clean {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: @field-height;
+    height: @field-height;
+    background: @icon-times-muted center no-repeat;
+    opacity: 0.8;
+    cursor: pointer;
+
+    &:hover {opacity: 1}
+}
+
+.field-helper {
+    position: relative;
+    width: 100%;
+}

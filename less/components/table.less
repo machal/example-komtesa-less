@@ -1,0 +1,89 @@
+// Tabulky
+//
+// Slouží pro přehledné zobrazení dat a také se používá jako [číselník položek](#kssref-components-table-items).
+//
+// Pro HTML tag `body` se dá použít modifikátor `table__body--hover`, který zvýrazní řádek při najetí myši.
+//
+// Pro HTML tag `tr` se dají použít modifikátory:
+// * `table__row--heading` - pro řádek, který obsahuje soušet ostatních řádků.
+// * `table__row--success` - Určeno pro čiselníkovou tabulku, kde definuje aktivní/povolenou položku.
+// * `table__row--warning` - Určeno pro čiselníkovou tabulku, kde definuje probíhající akci u položky.
+// * `table__row--muted` - Určeno pro čiselníkovou tabulku, kde definuje neaktivní/nepovolenou položku.
+//
+// Markup: table.hbs
+//
+// Weight: 7
+//
+// Style guide: components.table
+table {
+    width: 100%;
+    background: @table-bg;
+    line-height: 1.4;
+}
+
+thead {
+    border-bottom: 0.1rem solid @border-color;
+    background: @table-header-bg;
+}
+
+tbody {
+    th, td {padding: @table-body-cell-padding}
+}
+
+tfoot {
+    border-top: 0.1rem solid @border-color;
+    background: @table-footer-bg;
+}
+
+tr:not(:last-child) {border-bottom: 0.1rem solid @border-color}
+
+th, td {
+    padding: @table-cell-padding;
+    text-align: left;
+
+    &[align="center"] {text-align: center}
+    &[align="right"]  {text-align: right}
+
+    .btn {
+        margin-top: -0.9rem;
+        margin-bottom: -0.6rem;
+    }
+}
+
+.table__body--hover {
+    tr:hover {background: @table-body-hover-row-bg}
+    tr:not(:hover) .btn--ghost {opacity: 0}
+}
+
+.table__row {
+    tr:not(:first-child)&--heading {
+        border-top: 0.2rem solid @brand-tertiary;
+        font-weight: @font-weight-bold;
+    }
+
+    &--success {border-left: 0.4rem solid @brand-success}
+    &--warning {border-left: 0.4rem solid @brand-warning}
+    &--muted   {border-left: 0.4rem solid @text-muted}
+}
+
+.table-responsive {
+    overflow-x: auto;
+    min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+    @media screen and (max-width: @screen-xs-max) {
+        width: 100%;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 0.1rem solid @border-color;
+
+        .table__cell {white-space: nowrap}
+    }
+}
+
+// Číselníková tabulka
+//
+// Tabulka použitá jako číselník položek.
+//
+// Markup: table-items.hbs
+//
+// Style guide: components.table.items
